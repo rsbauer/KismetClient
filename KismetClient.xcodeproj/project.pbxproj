@@ -21,11 +21,11 @@
 		6618DA7813D1D01400DDF41B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6618DA7A13D1D01400DDF41B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6618DA8013D1D01400DDF41B /* KismetClient-Info.plist */ = {isa = PBXFileReference; path = "KismetClient-Info.plist"; sourceTree = "<group>"; };
+		6618DA8013D1D01400DDF41B /* KismetClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KismetClient-Info.plist"; sourceTree = "<group>"; };
 		6618DA8213D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6618DA8413D1D01400DDF41B /* KismetClient-Prefix.pch */ = {isa = PBXFileReference; path = "KismetClient-Prefix.pch"; sourceTree = "<group>"; };
+		6618DA8413D1D01400DDF41B /* KismetClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KismetClient-Prefix.pch"; sourceTree = "<group>"; };
 		6618DA8513D1D01400DDF41B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */ = {isa = PBXFileReference; path = KismetClientAppDelegate.h; sourceTree = "<group>"; };
+		6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KismetClientAppDelegate.h; sourceTree = "<group>"; };
 		6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KismetClientAppDelegate.m; sourceTree = "<group>"; };
 		6618DA8B13D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */

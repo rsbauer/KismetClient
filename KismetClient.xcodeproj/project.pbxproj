@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6618DA7913D1D01400DDF41B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7813D1D01400DDF41B /* UIKit.framework */; };
+		6618DA7B13D1D01400DDF41B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7A13D1D01400DDF41B /* Foundation.framework */; };
+		6618DA7D13D1D01400DDF41B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */; };
+		6618DA8313D1D01400DDF41B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6618DA8113D1D01400DDF41B /* InfoPlist.strings */; };
+		6618DA8613D1D01400DDF41B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8513D1D01400DDF41B /* main.m */; };
+		6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */; };
+		6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6618DA8A13D1D01400DDF41B /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6618DA7413D1D01400DDF41B /* KismetClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KismetClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6618DA7813D1D01400DDF41B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6618DA7A13D1D01400DDF41B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6618DA8013D1D01400DDF41B /* KismetClient-Info.plist */ = {isa = PBXFileReference; path = "KismetClient-Info.plist"; sourceTree = "<group>"; };
+		6618DA8213D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6618DA8413D1D01400DDF41B /* KismetClient-Prefix.pch */ = {isa = PBXFileReference; path = "KismetClient-Prefix.pch"; sourceTree = "<group>"; };
+		6618DA8513D1D01400DDF41B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */ = {isa = PBXFileReference; path = KismetClientAppDelegate.h; sourceTree = "<group>"; };
+		6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KismetClientAppDelegate.m; sourceTree = "<group>"; };
+		6618DA8B13D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6618DA7113D1D01400DDF41B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6618DA7913D1D01400DDF41B /* UIKit.framework in Frameworks */,
+				6618DA7B13D1D01400DDF41B /* Foundation.framework in Frameworks */,
+				6618DA7D13D1D01400DDF41B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6618DA6913D1D01400DDF41B = {
+			isa = PBXGroup;
+			children = (
+				6618DA7E13D1D01400DDF41B /* KismetClient */,
+				6618DA7713D1D01400DDF41B /* Frameworks */,
+				6618DA7513D1D01400DDF41B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6618DA7513D1D01400DDF41B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA7413D1D01400DDF41B /* KismetClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6618DA7713D1D01400DDF41B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA7813D1D01400DDF41B /* UIKit.framework */,
+				6618DA7A13D1D01400DDF41B /* Foundation.framework */,
+				6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6618DA7E13D1D01400DDF41B /* KismetClient */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */,
+				6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */,
+				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
+				6618DA7F13D1D01400DDF41B /* Supporting Files */,
+			);
+			path = KismetClient;
+			sourceTree = "<group>";
+		};
+		6618DA7F13D1D01400DDF41B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA8013D1D01400DDF41B /* KismetClient-Info.plist */,
+				6618DA8113D1D01400DDF41B /* InfoPlist.strings */,
+				6618DA8413D1D01400DDF41B /* KismetClient-Prefix.pch */,
+				6618DA8513D1D01400DDF41B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6618DA7313D1D01400DDF41B /* KismetClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6618DA8F13D1D01400DDF41B /* Build configuration list for PBXNativeTarget "KismetClient" */;
+			buildPhases = (
+				6618DA7013D1D01400DDF41B /* Sources */,
+				6618DA7113D1D01400DDF41B /* Frameworks */,
+				6618DA7213D1D01400DDF41B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KismetClient;
+			productName = KismetClient;
+			productReference = 6618DA7413D1D01400DDF41B /* KismetClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6618DA6B13D1D01400DDF41B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6618DA6E13D1D01400DDF41B /* Build configuration list for PBXProject "KismetClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6618DA6913D1D01400DDF41B;
+			productRefGroup = 6618DA7513D1D01400DDF41B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6618DA7313D1D01400DDF41B /* KismetClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6618DA7213D1D01400DDF41B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6618DA8313D1D01400DDF41B /* InfoPlist.strings in Resources */,
+				6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6618DA7013D1D01400DDF41B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6618DA8613D1D01400DDF41B /* main.m in Sources */,
+				6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6618DA8113D1D01400DDF41B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6618DA8213D1D01400DDF41B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6618DA8A13D1D01400DDF41B /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6618DA8B13D1D01400DDF41B /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6618DA8D13D1D01400DDF41B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6618DA8E13D1D01400DDF41B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		6618DA9013D1D01400DDF41B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
+				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6618DA9113D1D01400DDF41B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
+				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6618DA6E13D1D01400DDF41B /* Build configuration list for PBXProject "KismetClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6618DA8D13D1D01400DDF41B /* Debug */,
+				6618DA8E13D1D01400DDF41B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6618DA8F13D1D01400DDF41B /* Build configuration list for PBXNativeTarget "KismetClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6618DA9013D1D01400DDF41B /* Debug */,
+				6618DA9113D1D01400DDF41B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6618DA6B13D1D01400DDF41B /* Project object */;
+}

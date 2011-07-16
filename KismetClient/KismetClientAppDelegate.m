@@ -15,7 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // TODO:  Add some useful code here...
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

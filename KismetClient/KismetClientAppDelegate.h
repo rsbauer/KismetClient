@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KismetClientAppDelegate : NSObject <UIApplicationDelegate> {
+NSInputStream *inputStream;
+NSOutputStream *outputStream;
+
+
+@interface KismetClientAppDelegate : NSObject <UIApplicationDelegate, NSStreamDelegate> {
+    NSMutableArray *messages;
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+
+@property (nonatomic, retain) NSMutableArray *messages;
+
+-(void)initNetworkCommunication;
+-(void)joinNetwork;
+
 
 @end

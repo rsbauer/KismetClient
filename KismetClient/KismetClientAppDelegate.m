@@ -12,10 +12,20 @@
 
 
 @synthesize window=_window;
+@synthesize messages;
 
+// code from: http://www.raywenderlich.com/3932/how-to-create-a-socket-based-iphone-app-and-server
+
+#pragma mark XIB flavored methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // TODO:  Add some useful code here... (v2) 
+    messages = [[NSMutableArray alloc] init];	
+    
+    NSLog(@"Init Network");
+    [self initNetworkCommunication];
+    NSLog(@"Join Network");
+    [self joinNetwork];
+    NSLog(@"Joined");
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -62,8 +72,79 @@
 
 - (void)dealloc
 {
+    [messages release];
+
     [_window release];
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark Network communication
+
+- (void)initNetworkCommunication {
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    // CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.43.2", 2501, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (CFStringRef)@"tekro.com", 80, &readStream, &writeStream);
+    inputStream = (NSInputStream *)readStream;
+    outputStream = (NSOutputStream *)writeStream;
+    
+    [inputStream setDelegate:self];
+    [outputStream setDelegate:self];
+    
+    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [inputStream open];
+    [outputStream open];
+}
+
+- (void)joinNetwork 
+{
+    NSString *response  = [NSString stringWithFormat:@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid"];
+    NSLog(@"build response");
+	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSLog(@"*data setup");
+	[outputStream write:[data bytes] maxLength:[data length]];    
+    NSLog(@"data written");
+}
+
+
+- (void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
+	NSLog(@"stream event %i", streamEvent);
+	switch (streamEvent) {
+            
+		case NSStreamEventOpenCompleted:
+			NSLog(@"Stream opened");
+			break;
+            
+		case NSStreamEventHasBytesAvailable:
+            NSLog(@"Stream has bytes availabe");
+			break;			
+            
+		case NSStreamEventErrorOccurred:
+			NSLog(@"Can not connect to the host!");
+			break;
+            
+		case NSStreamEventEndEncountered:
+            NSLog(@"Stream has ended");
+            [theStream close];
+            [theStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+			break;
+            
+		default:
+			NSLog(@"Unknown event");
+	}
+    
+}
+
+
+- (void)messageReceived:(NSString *)message {
+    NSLog(@"Message: %@", message);
+	[messages addObject:message];
+    //	[self.tView reloadData];
+    
+}
+
 
 @end

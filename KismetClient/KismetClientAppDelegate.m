@@ -24,7 +24,7 @@
     NSLog(@"Init Network");
     [self initNetworkCommunication];
     NSLog(@"Join Network");
-    [self joinNetwork];
+//    [self joinNetwork];
     NSLog(@"Joined");
     
     [self.window makeKeyAndVisible];
@@ -72,6 +72,8 @@
 
 - (void)dealloc
 {
+    [self closeStreams];
+    
     [messages release];
 
     [_window release];
@@ -89,6 +91,9 @@
     inputStream = (NSInputStream *)readStream;
     outputStream = (NSOutputStream *)writeStream;
     
+    [inputStream retain];
+    [outputStream retain];
+    
     [inputStream setDelegate:self];
     [outputStream setDelegate:self];
     
@@ -103,7 +108,7 @@
 {
     NSString *response  = [NSString stringWithFormat:@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid"];
     NSLog(@"build response");
-	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+	NSMutableData* data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     NSLog(@"*data setup");
 	[outputStream write:[data bytes] maxLength:[data length]];    
     NSLog(@"data written");
@@ -114,12 +119,42 @@
 	NSLog(@"stream event %i", streamEvent);
 	switch (streamEvent) {
             
+        case NSStreamEventHasSpaceAvailable: 
+            if(theStream == outputStream) {
+                NSLog(@"outputStream is ready.");
+                
+                NSString *s =@"12\n\n";
+                
+                [self writeOut:s];
+            }
+            break;
+            
 		case NSStreamEventOpenCompleted:
 			NSLog(@"Stream opened");
+            [self joinNetwork];
 			break;
             
 		case NSStreamEventHasBytesAvailable:
-            NSLog(@"Stream has bytes availabe");
+            if(theStream == inputStream) {
+                NSLog(@"inputStream is ready."); 
+                
+                uint8_t buf[1024];
+                unsigned int len = 0;
+                
+                len = [inputStream read:buf maxLength:1024];
+                
+                if(len > 0) {
+                    NSMutableData* data=[[NSMutableData alloc] initWithLength:0];
+                    
+                    [data appendBytes: (const void *)buf length:len];
+                    
+                    NSString *s = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+                    
+                    [self readIn:s];
+                    
+                    [data release];
+                }
+            } 
 			break;			
             
 		case NSStreamEventErrorOccurred:
@@ -129,8 +164,14 @@
 		case NSStreamEventEndEncountered:
             NSLog(@"Stream has ended");
             [theStream close];
+            
             [theStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-			break;
+            [theStream setDelegate:nil];
+            [theStream release];
+
+            
+            [self closeStreams];
+            break;
             
 		default:
 			NSLog(@"Unknown event");
@@ -146,5 +187,37 @@
     
 }
 
+- (void)readIn:(NSString *)s {
+    NSLog(@"Reading in the following:");
+    NSLog(@"%@", s);
+}
 
+- (void)writeOut:(NSString *)s {
+    uint8_t *buf = (uint8_t *)[s UTF8String];
+    
+    NSInteger nwritten=[outputStream write:buf maxLength:strlen((char *)buf)];
+    if (-1 == nwritten) {
+        NSLog(@"Error writing to stream %@: %@", outputStream, [outputStream streamError]);
+    } else {
+        NSLog(@"Wrote %ld bytes to stream %@.", (long)nwritten, outputStream);
+    }
+    NSLog(@"Writing out the following:");
+    NSLog(@"%@", s);
+}
+
+- (void)closeStreams
+{
+    [inputStream close];
+    [outputStream close];
+    
+    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [inputStream setDelegate:nil];
+    [outputStream setDelegate:nil];
+    
+    [inputStream release];
+    [outputStream release];
+
+}
 @end

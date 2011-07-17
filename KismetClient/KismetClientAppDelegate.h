@@ -8,26 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-NSInputStream *inputStream;
-NSOutputStream *outputStream;
+@class ULINetSocket;
 
+@interface KismetClientAppDelegate : NSObject <UIApplicationDelegate> {
 
-@interface KismetClientAppDelegate : NSObject <UIApplicationDelegate, NSStreamDelegate> {
-    NSMutableArray *messages;
-//    NSData *data;
-    NSNumber *bytesRead;
+    ULINetSocket *mSocket;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) NSMutableArray *messages;
-// @property (nonatomic, retain) NSData *data;
-
-- (void)initNetworkCommunication;
-- (void)joinNetwork;
-- (void)closeStreams;
-- (void)readIn:(NSString *)s;
-- (void)writeOut:(NSString *)s; 
+- (void)connect;
 
 
 @end

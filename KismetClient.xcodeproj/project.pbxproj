@@ -14,6 +14,7 @@
 		6618DA8613D1D01400DDF41B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8513D1D01400DDF41B /* main.m */; };
 		6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */; };
 		6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6618DA8A13D1D01400DDF41B /* MainWindow.xib */; };
+		6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DB3013D384E100DDF41B /* ULINetSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KismetClientAppDelegate.h; sourceTree = "<group>"; };
 		6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KismetClientAppDelegate.m; sourceTree = "<group>"; };
 		6618DA8B13D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		6618DB2F13D384E100DDF41B /* ULINetSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULINetSocket.h; sourceTree = "<group>"; };
+		6618DB3013D384E100DDF41B /* ULINetSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULINetSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 		6618DA7E13D1D01400DDF41B /* KismetClient */ = {
 			isa = PBXGroup;
 			children = (
+				6618DB2F13D384E100DDF41B /* ULINetSocket.h */,
+				6618DB3013D384E100DDF41B /* ULINetSocket.m */,
 				6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */,
 				6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */,
 				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
@@ -124,6 +129,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 6618DA6913D1D01400DDF41B;
 			productRefGroup = 6618DA7513D1D01400DDF41B /* Products */;
@@ -154,6 +160,7 @@
 			files = (
 				6618DA8613D1D01400DDF41B /* main.m in Sources */,
 				6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */,
+				6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

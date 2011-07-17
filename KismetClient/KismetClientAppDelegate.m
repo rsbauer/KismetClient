@@ -7,25 +7,24 @@
 //
 
 #import "KismetClientAppDelegate.h"
+#import "ULINetSocket.h"
 
 @implementation KismetClientAppDelegate
 
-
 @synthesize window=_window;
-@synthesize messages;
 
-// code from: http://www.raywenderlich.com/3932/how-to-create-a-socket-based-iphone-app-and-server
+// @synthesize readStream, writeStream;
+
+// code from: http://stackoverflow.com/questions/3965370/problem-with-the-writing-tcp-socket-in-objective-c-error-message
+
 
 #pragma mark XIB flavored methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    messages = [[NSMutableArray alloc] init];	
+    // Use the NetSocket convenience method to ignore broken pipe signals
+    [ULINetSocket ignoreBrokenPipes];
     
-    NSLog(@"Init Network");
-    [self initNetworkCommunication];
-    NSLog(@"Join Network");
-//    [self joinNetwork];
-    NSLog(@"Joined");
+    [self connect];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -71,11 +70,10 @@
 }
 
 - (void)dealloc
-{
-    [self closeStreams];
+{    
+    [mSocket release];
+    mSocket = nil;
     
-    [messages release];
-
     [_window release];
     [super dealloc];
 }
@@ -83,141 +81,76 @@
 #pragma mark -
 #pragma mark Network communication
 
-- (void)initNetworkCommunication {
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    // CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.43.2", 2501, &readStream, &writeStream);
-    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (CFStringRef)@"tekro.com", 80, &readStream, &writeStream);
-    inputStream = (NSInputStream *)readStream;
-    outputStream = (NSOutputStream *)writeStream;
-    
-    [inputStream retain];
-    [outputStream retain];
-    
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    [inputStream open];
-    [outputStream open];
-}
-
-- (void)joinNetwork 
+- (id)init
 {
-    NSString *response  = [NSString stringWithFormat:@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid"];
-    NSLog(@"build response");
-	NSMutableData* data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-    NSLog(@"*data setup");
-	[outputStream write:[data bytes] maxLength:[data length]];    
-    NSLog(@"data written");
-}
-
-
-- (void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
-	NSLog(@"stream event %i", streamEvent);
-	switch (streamEvent) {
-            
-        case NSStreamEventHasSpaceAvailable: 
-            if(theStream == outputStream) {
-                NSLog(@"outputStream is ready.");
-                
-                NSString *s =@"12\n\n";
-                
-                [self writeOut:s];
-            }
-            break;
-            
-		case NSStreamEventOpenCompleted:
-			NSLog(@"Stream opened");
-            [self joinNetwork];
-			break;
-            
-		case NSStreamEventHasBytesAvailable:
-            if(theStream == inputStream) {
-                NSLog(@"inputStream is ready."); 
-                
-                uint8_t buf[1024];
-                unsigned int len = 0;
-                
-                len = [inputStream read:buf maxLength:1024];
-                
-                if(len > 0) {
-                    NSMutableData* data=[[NSMutableData alloc] initWithLength:0];
-                    
-                    [data appendBytes: (const void *)buf length:len];
-                    
-                    NSString *s = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-                    
-                    [self readIn:s];
-                    
-                    [data release];
-                }
-            } 
-			break;			
-            
-		case NSStreamEventErrorOccurred:
-			NSLog(@"Can not connect to the host!");
-			break;
-            
-		case NSStreamEventEndEncountered:
-            NSLog(@"Stream has ended");
-            [theStream close];
-            
-            [theStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-            [theStream setDelegate:nil];
-            [theStream release];
-
-            
-            [self closeStreams];
-            break;
-            
-		default:
-			NSLog(@"Unknown event");
-	}
+    if( ![super init] )
+        return nil;
     
-}
-
-
-- (void)messageReceived:(NSString *)message {
-    NSLog(@"Message: %@", message);
-	[messages addObject:message];
-    //	[self.tView reloadData];
+    mSocket = nil;
     
+    return self;
 }
 
-- (void)readIn:(NSString *)s {
-    NSLog(@"Reading in the following:");
-    NSLog(@"%@", s);
-}
 
-- (void)writeOut:(NSString *)s {
-    uint8_t *buf = (uint8_t *)[s UTF8String];
-    
-    NSInteger nwritten=[outputStream write:buf maxLength:strlen((char *)buf)];
-    if (-1 == nwritten) {
-        NSLog(@"Error writing to stream %@: %@", outputStream, [outputStream streamError]);
-    } else {
-        NSLog(@"Wrote %ld bytes to stream %@.", (long)nwritten, outputStream);
-    }
-    NSLog(@"Writing out the following:");
-    NSLog(@"%@", s);
-}
-
-- (void)closeStreams
+- (void)connect
 {
-    [inputStream close];
-    [outputStream close];
+    // Create a new ULINetSocket connected to the host. Since ULINetSocket is asynchronous, the socket is not
+    // connected to the host until the delegate method is called.
+    mSocket = [[ULINetSocket netsocketConnectedToHost:@"192.168.43.2" port:2501] retain];
     
-    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    // Schedule the ULINetSocket on the current runloop
+    [mSocket scheduleOnCurrentRunLoop];
     
-    [inputStream setDelegate:nil];
-    [outputStream setDelegate:nil];
+    // Set the ULINetSocket's delegate to ourself
+    [mSocket setDelegate:self];
+}
+
+#pragma mark -
+
+- (void)netsocketConnected:(ULINetSocket*)inNetSocket
+{
+    NSLog( @"Socket Connected" );
     
-    [inputStream release];
-    [outputStream release];
+    // Send a simple HTTP 1.0 header to the server and hopefully we won't be rejected
+    [mSocket writeString:@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid\n!0 ENABLE INFO networks\n" encoding:NSUTF8StringEncoding];
+}
+
+- (void)netsocketDisconnected:(ULINetSocket*)inNetSocket
+{
+//    NSString* path;
+//    NSString* data;
+    
+    NSLog( @"Socket Disconnected" );
+    
+    // Determine path for writing page to disk
+    // path = [@"~/GET Example Download.html" stringByExpandingTildeInPath];
+    
+    // Read downloaded page from socket. Since ULINetSocket buffers available data for you
+    // you can wait for your socket to disconnect and then read the data at once
+    // data = [mSocket readString:NSUTF8StringEncoding];
+    
+    // Write downloaded page to disk
+    // [data writeToFile: path atomically: YES encoding: NSUTF8StringEncoding error: nil];
+    
+    // NSLog( @"GET Example: Saved downloaded page to %@", path );
+}
+
+- (void)netsocket:(ULINetSocket*)inNetSocket dataAvailable:(unsigned)inAmount
+{
+//    NSLog( @"Socket: Data available (%u)", inAmount );
+//    NSString *data;
+    NSString *data; 
+    data = [mSocket readString:NSUTF8StringEncoding];
+    NSLog(@"!>%@\n", data);
+    
 
 }
+
+- (void)netsocketDataSent:(ULINetSocket*)inNetSocket
+{
+    NSLog( @"Socket: Data sent" );
+}
+
+
+
 @end

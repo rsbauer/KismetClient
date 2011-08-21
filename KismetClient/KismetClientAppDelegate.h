@@ -7,17 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncSocket.h"
 
-@class ULINetSocket;
+#define TIMEOUT 30
+
+typedef enum {
+    TAG_CMD,
+    TAG_DATA
+} TAGLIST;
+
 
 @interface KismetClientAppDelegate : NSObject <UIApplicationDelegate> {
 
-    ULINetSocket *mSocket;
+    AsyncSocket *asyncSocket;
+
 }
+
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 - (void)connect;
 
+- (void)readKismet;
 
 @end

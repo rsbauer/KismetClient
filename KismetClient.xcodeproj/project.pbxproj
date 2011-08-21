@@ -15,6 +15,8 @@
 		6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */; };
 		6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6618DA8A13D1D01400DDF41B /* MainWindow.xib */; };
 		6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DB3013D384E100DDF41B /* ULINetSocket.m */; };
+		66B0104413FF4FC20009B436 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B0104313FF4FC20009B436 /* AsyncSocket.m */; };
+		66B0104B13FF58DF0009B436 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B0104A13FF58DF0009B436 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		6618DA8B13D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		6618DB2F13D384E100DDF41B /* ULINetSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULINetSocket.h; sourceTree = "<group>"; };
 		6618DB3013D384E100DDF41B /* ULINetSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULINetSocket.m; sourceTree = "<group>"; };
+		66B0104213FF4FC20009B436 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		66B0104313FF4FC20009B436 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		66B0104A13FF58DF0009B436 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B0104B13FF58DF0009B436 /* CFNetwork.framework in Frameworks */,
 				6618DA7913D1D01400DDF41B /* UIKit.framework in Frameworks */,
 				6618DA7B13D1D01400DDF41B /* Foundation.framework in Frameworks */,
 				6618DA7D13D1D01400DDF41B /* CoreGraphics.framework in Frameworks */,
@@ -50,6 +56,7 @@
 		6618DA6913D1D01400DDF41B = {
 			isa = PBXGroup;
 			children = (
+				66B0104A13FF58DF0009B436 /* CFNetwork.framework */,
 				6618DA7E13D1D01400DDF41B /* KismetClient */,
 				6618DA7713D1D01400DDF41B /* Frameworks */,
 				6618DA7513D1D01400DDF41B /* Products */,
@@ -82,6 +89,8 @@
 				6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */,
 				6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */,
 				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
+				66B0104213FF4FC20009B436 /* AsyncSocket.h */,
+				66B0104313FF4FC20009B436 /* AsyncSocket.m */,
 				6618DA7F13D1D01400DDF41B /* Supporting Files */,
 			);
 			path = KismetClient;
@@ -161,6 +170,7 @@
 				6618DA8613D1D01400DDF41B /* main.m in Sources */,
 				6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */,
 				6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */,
+				66B0104413FF4FC20009B436 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +275,7 @@
 				6618DA9113D1D01400DDF41B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

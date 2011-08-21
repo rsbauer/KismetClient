@@ -7,22 +7,17 @@
 //
 
 #import "KismetClientAppDelegate.h"
-#import "ULINetSocket.h"
 
 @implementation KismetClientAppDelegate
 
 @synthesize window=_window;
 
-// @synthesize readStream, writeStream;
-
-// code from: http://stackoverflow.com/questions/3965370/problem-with-the-writing-tcp-socket-in-objective-c-error-message
-
+// AsyncSocket:  http://code.google.com/p/cocoaasyncsocket/
 
 #pragma mark XIB flavored methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Use the NetSocket convenience method to ignore broken pipe signals
-    [ULINetSocket ignoreBrokenPipes];
+    asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
     
     [self connect];
     
@@ -71,8 +66,8 @@
 
 - (void)dealloc
 {    
-    [mSocket release];
-    mSocket = nil;
+    asyncSocket = nil;
+    [asyncSocket release]; 
     
     [_window release];
     [super dealloc];
@@ -85,70 +80,52 @@
 {
     if( ![super init] )
         return nil;
-    
-    mSocket = nil;
-    
+        
     return self;
 }
 
 
 - (void)connect
 {
-    // Create a new ULINetSocket connected to the host. Since ULINetSocket is asynchronous, the socket is not
-    // connected to the host until the delegate method is called.
-    mSocket = [[ULINetSocket netsocketConnectedToHost:@"192.168.43.2" port:2501] retain];
+    [asyncSocket connectToHost:@"192.168.2.102" onPort:9000 error:nil];
+    NSData *msg = [@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid\n!0 ENABLE INFO networks\n" dataUsingEncoding:NSUTF8StringEncoding];
+    [asyncSocket writeData:msg withTimeout:TIMEOUT tag:TAG_CMD];
     
-    // Schedule the ULINetSocket on the current runloop
-    [mSocket scheduleOnCurrentRunLoop];
-    
-    // Set the ULINetSocket's delegate to ourself
-    [mSocket setDelegate:self];
 }
 
-#pragma mark -
 
-- (void)netsocketConnected:(ULINetSocket*)inNetSocket
+- (void)onSocket:(AsyncSocket *)sender didReadData:(NSData *)data withTag:(long)tag
 {
-    NSLog( @"Socket Connected" );
+    if (tag == TAG_DATA)
+    {
+        NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"TAG_DATA: %@", output);
+        [output release];
+    }
     
-    // Send a simple HTTP 1.0 header to the server and hopefully we won't be rejected
-    [mSocket writeString:@"\n!0 REMOVE TIME\n!0 ENABLE NETWORK bssid,wep,ssid\n!0 ENABLE INFO networks\n" encoding:NSUTF8StringEncoding];
+    [self readKismet];
 }
 
-- (void)netsocketDisconnected:(ULINetSocket*)inNetSocket
+
+- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)remoteHost port:(UInt16)remotePort
 {
-//    NSString* path;
-//    NSString* data;
+	NSLog(@"Socket is connected!");
+	
+	NSLog(@"Remote Address: %@:%hu", remoteHost, remotePort);
+	
+	NSString *localHost = [sock localHost];
+	UInt16 localPort = [sock localPort];
+	
+	NSLog(@"Local Address: %@:%hu", localHost, localPort);
     
-    NSLog( @"Socket Disconnected" );
-    
-    // Determine path for writing page to disk
-    // path = [@"~/GET Example Download.html" stringByExpandingTildeInPath];
-    
-    // Read downloaded page from socket. Since ULINetSocket buffers available data for you
-    // you can wait for your socket to disconnect and then read the data at once
-    // data = [mSocket readString:NSUTF8StringEncoding];
-    
-    // Write downloaded page to disk
-    // [data writeToFile: path atomically: YES encoding: NSUTF8StringEncoding error: nil];
-    
-    // NSLog( @"GET Example: Saved downloaded page to %@", path );
+    [self readKismet];
 }
 
-- (void)netsocket:(ULINetSocket*)inNetSocket dataAvailable:(unsigned)inAmount
+- (void)readKismet
 {
-//    NSLog( @"Socket: Data available (%u)", inAmount );
-//    NSString *data;
-    NSString *data; 
-    data = [mSocket readString:NSUTF8StringEncoding];
-    NSLog(@"!>%@\n", data);
-    
+    NSData *msg = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
 
-}
-
-- (void)netsocketDataSent:(ULINetSocket*)inNetSocket
-{
-    NSLog( @"Socket: Data sent" );
+    [asyncSocket readDataToData:msg withTimeout:TIMEOUT tag:TAG_DATA];
 }
 
 

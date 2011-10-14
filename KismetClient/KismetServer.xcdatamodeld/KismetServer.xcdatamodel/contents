@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11A511" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AccessPoint" representedClassName="AccessPoint">
+        <attribute name="addedOn" optional="YES" attributeType="Date" indexed="YES"/>
+        <attribute name="bssid" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="channel" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="ignore" optional="YES" attributeType="Boolean"/>
+        <attribute name="lastSeen" optional="YES" attributeType="Date"/>
+        <attribute name="maxalt" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="maxlat" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="maxlon" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="maxrate" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="maxspd" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="minalt" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="minlat" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="minlon" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="minspd" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="rangeip" optional="YES" attributeType="String"/>
+        <attribute name="ssid" optional="YES" attributeType="String" indexed="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0.0"/>
+        <attribute name="wep" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <relationship name="ap_server" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="KismetServer" inverseName="server_ap" inverseEntity="KismetServer"/>
+    </entity>
+    <entity name="GPSTrack" representedClassName="GPSTrack">
+        <attribute name="alt" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="fix" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="heading" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="lat" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="lon" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="speed" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+    </entity>
+    <entity name="KismetServer" representedClassName="KismetServer">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="orderingValue" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="port" optional="YES" attributeType="String"/>
+        <attribute name="serverName" optional="YES" attributeType="String"/>
+        <relationship name="server_ap" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AccessPoint" inverseName="ap_server" inverseEntity="AccessPoint"/>
+    </entity>
+    <elements>
+        <element name="AccessPoint" positionX="-92" positionY="93" width="128" height="330"/>
+        <element name="GPSTrack" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="KismetServer" positionX="160" positionY="192" width="128" height="105"/>
+    </elements>
+</model>

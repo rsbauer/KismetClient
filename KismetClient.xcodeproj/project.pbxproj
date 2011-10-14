@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66114B171408838700D91AC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66114B161408838700D91AC9 /* MainViewController.m */; };
 		6618DA7913D1D01400DDF41B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7813D1D01400DDF41B /* UIKit.framework */; };
 		6618DA7B13D1D01400DDF41B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7A13D1D01400DDF41B /* Foundation.framework */; };
 		6618DA7D13D1D01400DDF41B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */; };
@@ -14,12 +15,30 @@
 		6618DA8613D1D01400DDF41B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8513D1D01400DDF41B /* main.m */; };
 		6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */; };
 		6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6618DA8A13D1D01400DDF41B /* MainWindow.xib */; };
-		6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6618DB3013D384E100DDF41B /* ULINetSocket.m */; };
+		662216C814437C0F0024026A /* IgnoreAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216C714437C0F0024026A /* IgnoreAP.m */; };
+		662216CC1443A2D10024026A /* AccessPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216CB1443A2D10024026A /* AccessPoint.m */; };
+		662216CF1443A2D20024026A /* GPSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216CE1443A2D20024026A /* GPSTrack.m */; };
+		662216D21443A2D30024026A /* KismetServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216D11443A2D30024026A /* KismetServer.m */; };
+		6622B877140B240D003D8CD9 /* ManageServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B876140B240D003D8CD9 /* ManageServerListViewController.m */; };
+		6635EBFF1409887300FF0AD5 /* SecondLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6635EBFD1409887300FF0AD5 /* SecondLevelViewController.m */; };
+		6635EC0414098AA000FF0AD5 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6635EC0314098AA000FF0AD5 /* ServerViewController.m */; };
+		665809D2140AAE0C00DA3540 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665809D1140AAE0C00DA3540 /* CoreData.framework */; };
+		665809DA140AC35200DA3540 /* KismetServer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 665809D8140AC35200DA3540 /* KismetServer.xcdatamodeld */; };
+		6665982A1401A03E002F0083 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666598281401A03E002F0083 /* MainWindow-iPad.xib */; };
+		669DAE2C141D96D300090782 /* WAPDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 669DAE2A141D96D300090782 /* WAPDetailView.m */; };
+		669DAE2D141D96D300090782 /* WAPDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669DAE2B141D96D300090782 /* WAPDetailView.xib */; };
+		669DAE69141DA48E00090782 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669DAE68141DA48E00090782 /* MapKit.framework */; };
+		669DAE72141DA85B00090782 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669DAE71141DA85B00090782 /* SystemConfiguration.framework */; };
+		66ACAA0E1412724A00526B5E /* WAPListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ACAA0D1412724A00526B5E /* WAPListViewController.m */; };
+		66ACAA171412B06700526B5E /* Connect.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ACAA161412B06700526B5E /* Connect.m */; };
+		66ACAA26141407D700526B5E /* KismetNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ACAA25141407D700526B5E /* KismetNetwork.m */; };
 		66B0104413FF4FC20009B436 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B0104313FF4FC20009B436 /* AsyncSocket.m */; };
 		66B0104B13FF58DF0009B436 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B0104A13FF58DF0009B436 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66114B151408838700D91AC9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		66114B161408838700D91AC9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6618DA7413D1D01400DDF41B /* KismetClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KismetClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6618DA7813D1D01400DDF41B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6618DA7A13D1D01400DDF41B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -31,8 +50,36 @@
 		6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KismetClientAppDelegate.h; sourceTree = "<group>"; };
 		6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KismetClientAppDelegate.m; sourceTree = "<group>"; };
 		6618DA8B13D1D01400DDF41B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		6618DB2F13D384E100DDF41B /* ULINetSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULINetSocket.h; sourceTree = "<group>"; };
-		6618DB3013D384E100DDF41B /* ULINetSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULINetSocket.m; sourceTree = "<group>"; };
+		662216C614437C0F0024026A /* IgnoreAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IgnoreAP.h; sourceTree = "<group>"; };
+		662216C714437C0F0024026A /* IgnoreAP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IgnoreAP.m; sourceTree = "<group>"; };
+		662216CA1443A2D10024026A /* AccessPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessPoint.h; sourceTree = "<group>"; };
+		662216CB1443A2D10024026A /* AccessPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessPoint.m; sourceTree = "<group>"; };
+		662216CD1443A2D20024026A /* GPSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSTrack.h; sourceTree = "<group>"; };
+		662216CE1443A2D20024026A /* GPSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSTrack.m; sourceTree = "<group>"; };
+		662216D01443A2D30024026A /* KismetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KismetServer.h; sourceTree = "<group>"; };
+		662216D11443A2D30024026A /* KismetServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KismetServer.m; sourceTree = "<group>"; };
+		6622B875140B240D003D8CD9 /* ManageServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageServerListViewController.h; sourceTree = "<group>"; };
+		6622B876140B240D003D8CD9 /* ManageServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageServerListViewController.m; sourceTree = "<group>"; };
+		6635EBFC1409887300FF0AD5 /* SecondLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondLevelViewController.h; sourceTree = "<group>"; };
+		6635EBFD1409887300FF0AD5 /* SecondLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondLevelViewController.m; sourceTree = "<group>"; };
+		6635EC0214098AA000FF0AD5 /* ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerViewController.h; sourceTree = "<group>"; };
+		6635EC0314098AA000FF0AD5 /* ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerViewController.m; sourceTree = "<group>"; };
+		665809D1140AAE0C00DA3540 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		665809D9140AC35200DA3540 /* KismetServer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KismetServer.xcdatamodel; sourceTree = "<group>"; };
+		666598291401A03E002F0083 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		669DAE29141D96D300090782 /* WAPDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAPDetailView.h; sourceTree = "<group>"; };
+		669DAE2A141D96D300090782 /* WAPDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAPDetailView.m; sourceTree = "<group>"; };
+		669DAE2B141D96D300090782 /* WAPDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WAPDetailView.xib; sourceTree = "<group>"; };
+		669DAE68141DA48E00090782 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		669DAE71141DA85B00090782 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66ACAA0C1412724A00526B5E /* WAPListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAPListViewController.h; sourceTree = "<group>"; };
+		66ACAA0D1412724A00526B5E /* WAPListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAPListViewController.m; sourceTree = "<group>"; };
+		66ACAA151412B06700526B5E /* Connect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connect.h; sourceTree = "<group>"; };
+		66ACAA161412B06700526B5E /* Connect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connect.m; sourceTree = "<group>"; };
+		66ACAA181412B0E700526B5E /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		66ACAA191412B0E700526B5E /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		66ACAA24141407D600526B5E /* KismetNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KismetNetwork.h; sourceTree = "<group>"; };
+		66ACAA25141407D700526B5E /* KismetNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KismetNetwork.m; sourceTree = "<group>"; };
 		66B0104213FF4FC20009B436 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
 		66B0104313FF4FC20009B436 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		66B0104A13FF58DF0009B436 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -43,6 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669DAE72141DA85B00090782 /* SystemConfiguration.framework in Frameworks */,
+				669DAE69141DA48E00090782 /* MapKit.framework in Frameworks */,
+				665809D2140AAE0C00DA3540 /* CoreData.framework in Frameworks */,
 				66B0104B13FF58DF0009B436 /* CFNetwork.framework in Frameworks */,
 				6618DA7913D1D01400DDF41B /* UIKit.framework in Frameworks */,
 				6618DA7B13D1D01400DDF41B /* Foundation.framework in Frameworks */,
@@ -53,10 +103,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66114B1014086C9500D91AC9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */,
+				6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */,
+				66114B151408838700D91AC9 /* MainViewController.h */,
+				66114B161408838700D91AC9 /* MainViewController.m */,
+				6635EBFC1409887300FF0AD5 /* SecondLevelViewController.h */,
+				6635EBFD1409887300FF0AD5 /* SecondLevelViewController.m */,
+				6635EC0214098AA000FF0AD5 /* ServerViewController.h */,
+				6635EC0314098AA000FF0AD5 /* ServerViewController.m */,
+				6622B875140B240D003D8CD9 /* ManageServerListViewController.h */,
+				6622B876140B240D003D8CD9 /* ManageServerListViewController.m */,
+				66ACAA0C1412724A00526B5E /* WAPListViewController.h */,
+				66ACAA0D1412724A00526B5E /* WAPListViewController.m */,
+				669DAE29141D96D300090782 /* WAPDetailView.h */,
+				669DAE2A141D96D300090782 /* WAPDetailView.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		6618DA6913D1D01400DDF41B = {
 			isa = PBXGroup;
 			children = (
-				66B0104A13FF58DF0009B436 /* CFNetwork.framework */,
 				6618DA7E13D1D01400DDF41B /* KismetClient */,
 				6618DA7713D1D01400DDF41B /* Frameworks */,
 				6618DA7513D1D01400DDF41B /* Products */,
@@ -74,6 +144,10 @@
 		6618DA7713D1D01400DDF41B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				669DAE71141DA85B00090782 /* SystemConfiguration.framework */,
+				669DAE68141DA48E00090782 /* MapKit.framework */,
+				665809D1140AAE0C00DA3540 /* CoreData.framework */,
+				66B0104A13FF58DF0009B436 /* CFNetwork.framework */,
 				6618DA7813D1D01400DDF41B /* UIKit.framework */,
 				6618DA7A13D1D01400DDF41B /* Foundation.framework */,
 				6618DA7C13D1D01400DDF41B /* CoreGraphics.framework */,
@@ -84,14 +158,14 @@
 		6618DA7E13D1D01400DDF41B /* KismetClient */ = {
 			isa = PBXGroup;
 			children = (
-				6618DB2F13D384E100DDF41B /* ULINetSocket.h */,
-				6618DB3013D384E100DDF41B /* ULINetSocket.m */,
-				6618DA8713D1D01400DDF41B /* KismetClientAppDelegate.h */,
-				6618DA8813D1D01400DDF41B /* KismetClientAppDelegate.m */,
-				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
-				66B0104213FF4FC20009B436 /* AsyncSocket.h */,
-				66B0104313FF4FC20009B436 /* AsyncSocket.m */,
+				66ACAA141412AE8B00526B5E /* Classes */,
+				665809D4140AAE2B00DA3540 /* Models */,
+				66114B1014086C9500D91AC9 /* ViewControllers */,
+				6665982C1401E843002F0083 /* Library */,
+				6665982B1401A062002F0083 /* Resources */,
+				666598271401A03D002F0083 /* iPad */,
 				6618DA7F13D1D01400DDF41B /* Supporting Files */,
+				665809D8140AC35200DA3540 /* KismetServer.xcdatamodeld */,
 			);
 			path = KismetClient;
 			sourceTree = "<group>";
@@ -105,6 +179,60 @@
 				6618DA8513D1D01400DDF41B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		665809D4140AAE2B00DA3540 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				662216CA1443A2D10024026A /* AccessPoint.h */,
+				662216CB1443A2D10024026A /* AccessPoint.m */,
+				662216CD1443A2D20024026A /* GPSTrack.h */,
+				662216CE1443A2D20024026A /* GPSTrack.m */,
+				662216D01443A2D30024026A /* KismetServer.h */,
+				662216D11443A2D30024026A /* KismetServer.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		666598271401A03D002F0083 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				666598281401A03E002F0083 /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		6665982B1401A062002F0083 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
+				669DAE2B141D96D300090782 /* WAPDetailView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6665982C1401E843002F0083 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				66B0104213FF4FC20009B436 /* AsyncSocket.h */,
+				66B0104313FF4FC20009B436 /* AsyncSocket.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		66ACAA141412AE8B00526B5E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				66ACAA181412B0E700526B5E /* AsyncSocket.h */,
+				66ACAA191412B0E700526B5E /* AsyncSocket.m */,
+				66ACAA151412B06700526B5E /* Connect.h */,
+				66ACAA161412B06700526B5E /* Connect.m */,
+				66ACAA24141407D600526B5E /* KismetNetwork.h */,
+				66ACAA25141407D700526B5E /* KismetNetwork.m */,
+				662216C614437C0F0024026A /* IgnoreAP.h */,
+				662216C714437C0F0024026A /* IgnoreAP.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +260,9 @@
 /* Begin PBXProject section */
 		6618DA6B13D1D01400DDF41B /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 6618DA6E13D1D01400DDF41B /* Build configuration list for PBXProject "KismetClient" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -157,6 +288,8 @@
 			files = (
 				6618DA8313D1D01400DDF41B /* InfoPlist.strings in Resources */,
 				6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */,
+				6665982A1401A03E002F0083 /* MainWindow-iPad.xib in Resources */,
+				669DAE2D141D96D300090782 /* WAPDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +302,20 @@
 			files = (
 				6618DA8613D1D01400DDF41B /* main.m in Sources */,
 				6618DA8913D1D01400DDF41B /* KismetClientAppDelegate.m in Sources */,
-				6618DB3113D384E100DDF41B /* ULINetSocket.m in Sources */,
 				66B0104413FF4FC20009B436 /* AsyncSocket.m in Sources */,
+				66114B171408838700D91AC9 /* MainViewController.m in Sources */,
+				6635EBFF1409887300FF0AD5 /* SecondLevelViewController.m in Sources */,
+				6635EC0414098AA000FF0AD5 /* ServerViewController.m in Sources */,
+				665809DA140AC35200DA3540 /* KismetServer.xcdatamodeld in Sources */,
+				6622B877140B240D003D8CD9 /* ManageServerListViewController.m in Sources */,
+				66ACAA0E1412724A00526B5E /* WAPListViewController.m in Sources */,
+				66ACAA171412B06700526B5E /* Connect.m in Sources */,
+				66ACAA26141407D700526B5E /* KismetNetwork.m in Sources */,
+				669DAE2C141D96D300090782 /* WAPDetailView.m in Sources */,
+				662216C814437C0F0024026A /* IgnoreAP.m in Sources */,
+				662216CC1443A2D10024026A /* AccessPoint.m in Sources */,
+				662216CF1443A2D20024026A /* GPSTrack.m in Sources */,
+				662216D21443A2D30024026A /* KismetServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +336,14 @@
 				6618DA8B13D1D01400DDF41B /* en */,
 			);
 			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		666598281401A03E002F0083 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				666598291401A03E002F0083 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -237,7 +390,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
 				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -250,7 +405,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
 				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -278,6 +435,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		665809D8140AC35200DA3540 /* KismetServer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				665809D9140AC35200DA3540 /* KismetServer.xcdatamodel */,
+			);
+			currentVersion = 665809D9140AC35200DA3540 /* KismetServer.xcdatamodel */;
+			path = KismetServer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6618DA6B13D1D01400DDF41B /* Project object */;
 }

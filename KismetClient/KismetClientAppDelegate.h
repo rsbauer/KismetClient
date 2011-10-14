@@ -11,23 +11,25 @@
 
 #define TIMEOUT 30
 
-typedef enum {
-    TAG_CMD,
-    TAG_DATA
-} TAGLIST;
-
-
 @interface KismetClientAppDelegate : NSObject <UIApplicationDelegate> {
 
-    AsyncSocket *asyncSocket;
-
+//    AsyncSocket *asyncSocket;
+    IBOutlet UINavigationController *navController;
 }
 
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navController;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
+/*
 - (void)connect;
 
 - (void)readKismet;
-
+*/
 @end

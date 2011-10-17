@@ -111,6 +111,7 @@
     
     if([ignoreAP.aps containsObject:[NSString stringWithFormat:@"%@%@", [dict objectForKey:@"ssid"], [dict objectForKey:@"bssid"]]])
     {
+        [dict release];
         return;
     }
     

@@ -10,7 +10,8 @@
 #import <MapKit/MapKit.h>
 #import "AccessPoint.h"
 
-@interface WAPDetailView : UITableViewController <UITableViewDelegate>
+// @interface WAPDetailView : UITableViewController <UITableViewDelegate>
+@interface WAPDetailView : UIViewController <UITableViewDelegate, MKMapViewDelegate>
 {
     AccessPoint *accessPoint;
 

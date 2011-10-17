@@ -9,6 +9,8 @@
 #import "WAPDetailView.h"
 #import "objc/runtime.h"
 #import "KismetClientAppDelegate.h"
+#import "APType.h"
+#import "APWep.h"
 
 #define IGNORE_TAG 99999
 
@@ -75,6 +77,9 @@
     
 //    scrollView.contentSize = subView.bounds.size;
 //    [scrollView addSubview:subView];
+    
+//    table = (UITableView *)[self.view viewWithTag:1];
+    table.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -83,6 +88,71 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //  NSDecimal *avglat = (accessPoint.minlat + accessPoint.maxlat) / 2;
+    NSDecimalNumber *divisor = [[NSDecimalNumber alloc] initWithInteger:2];
+    NSDecimalNumber *avglat = [[accessPoint.minlat decimalNumberByAdding:accessPoint.maxlat] decimalNumberByDividingBy:divisor];
+    NSDecimalNumber *avglon = [[accessPoint.minlon decimalNumberByAdding:accessPoint.maxlon] decimalNumberByDividingBy:divisor];
+    
+            
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake([accessPoint.minlat doubleValue], [accessPoint.minlon doubleValue]);
+    point.title = @"MIN";
+//    [mapView addAnnotation:point];
+
+    MKPointAnnotation *point2 = [[MKPointAnnotation alloc] init];
+    point2.coordinate = CLLocationCoordinate2DMake([accessPoint.maxlat doubleValue], [accessPoint.maxlon doubleValue]);
+    point2.title = @"MAX";
+//    [mapView addAnnotation:point2];
+
+    MKPointAnnotation *point3 = [[MKPointAnnotation alloc] init];
+    point3.coordinate = CLLocationCoordinate2DMake([avglat doubleValue], [avglon doubleValue]);
+    point3.title = accessPoint.bssid;
+    [mapView addAnnotation:point3];
+    
+    CLLocationCoordinate2D pointACoordinate = [point coordinate];
+    CLLocation *pointALocation = [[CLLocation alloc] initWithLatitude:pointACoordinate.latitude longitude:pointACoordinate.longitude];
+    CLLocationCoordinate2D pointBCoordinate = [point2 coordinate];
+    CLLocation *pointBLocation = [[CLLocation alloc] initWithLatitude:pointBCoordinate.latitude longitude:pointBCoordinate.longitude];
+    
+    
+    CLLocation *firstLocation = [[[CLLocation alloc] initWithLatitude:[avglat doubleValue] longitude:[avglon doubleValue]] autorelease];
+    CLLocation *secondLocation = [[[CLLocation alloc] initWithLatitude:[accessPoint.maxlat doubleValue] longitude:[accessPoint.maxlon doubleValue]] autorelease];
+    CLLocationDistance distance = [secondLocation distanceFromLocation:firstLocation];
+    
+    [mapView addOverlay:[MKCircle circleWithCenterCoordinate:point3.coordinate radius:distance]];
+
+    MKCoordinateRegion mapReg = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake([avglat doubleValue], [avglon doubleValue]), distance * 3, distance * 3);
+    
+    [mapView setRegion:mapReg];
+    
+
+    [point3 release];
+    [point2 release];
+    [point release];
+    
+    [pointALocation release];
+    [pointBLocation release];
+    [divisor release];
+
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)map viewForOverlay:(id <MKOverlay>)overlay {
+    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle *)overlay];
+    circleView.fillColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.25];;
+    return [circleView autorelease];
+
+}
+
+//- (MKOverlayView *)viewForOverlay:(id<MKOverlay>)overlay
+//{
+//    MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle *)overlay];
+//    circleView.fillColor = [UIColor blueColor];
+//    return [circleView autorelease];
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -126,6 +196,9 @@
     
     NSUInteger count;
     
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setDateFormat:@"h:mm:ssa"];
+
     objc_property_t *properties = class_copyPropertyList([AccessPoint class], &count);
     objc_property_t property = properties[[indexPath row]];
     const char *propName = property_getName(property);
@@ -138,7 +211,28 @@
             id value = [accessPoint valueForKey:propNameString];
 
             cell.textLabel.text = propNameString;
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", value];
+            
+            if([propNameString isEqualToString:@"addedOn"] || [propNameString isEqualToString:@"lastSeen"])
+            {
+                cell.detailTextLabel.text = [dateFormatter stringFromDate:value];
+            }
+            else
+            {
+                if([propNameString isEqualToString:@"type"])
+                {
+                    int num = [[NSString stringWithFormat:@"%@", value] intValue];
+                    value = [APType getTypeName:num];
+                }
+
+                if([propNameString isEqualToString:@"wep"])
+                {
+                    NSLog(@"wep: %@", value);
+                    int num = [[NSString stringWithFormat:@"%@", value] intValue];
+                    value = [APWep getWepName:num];
+                }
+                
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", value];
+            }
             
             cell.accessoryView = nil;
         }
@@ -162,6 +256,8 @@
     else
     {
         cell.textLabel.text = @"Properties";
+        cell.detailTextLabel.text = @"";
+        cell.accessoryView = nil;
     }
 
     /*

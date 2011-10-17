@@ -19,6 +19,9 @@
 		662216CC1443A2D10024026A /* AccessPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216CB1443A2D10024026A /* AccessPoint.m */; };
 		662216CF1443A2D20024026A /* GPSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216CE1443A2D20024026A /* GPSTrack.m */; };
 		662216D21443A2D30024026A /* KismetServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 662216D11443A2D30024026A /* KismetServer.m */; };
+		6622171F144B65180024026A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622171E144B65180024026A /* CoreLocation.framework */; };
+		66221722144BCA7B0024026A /* APType.m in Sources */ = {isa = PBXBuildFile; fileRef = 66221721144BCA7B0024026A /* APType.m */; };
+		66221728144BD1180024026A /* APWep.m in Sources */ = {isa = PBXBuildFile; fileRef = 66221727144BD1180024026A /* APWep.m */; };
 		6622B877140B240D003D8CD9 /* ManageServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B876140B240D003D8CD9 /* ManageServerListViewController.m */; };
 		6635EBFF1409887300FF0AD5 /* SecondLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6635EBFD1409887300FF0AD5 /* SecondLevelViewController.m */; };
 		6635EC0414098AA000FF0AD5 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6635EC0314098AA000FF0AD5 /* ServerViewController.m */; };
@@ -58,6 +61,11 @@
 		662216CE1443A2D20024026A /* GPSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSTrack.m; sourceTree = "<group>"; };
 		662216D01443A2D30024026A /* KismetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KismetServer.h; sourceTree = "<group>"; };
 		662216D11443A2D30024026A /* KismetServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KismetServer.m; sourceTree = "<group>"; };
+		6622171E144B65180024026A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		66221720144BCA7B0024026A /* APType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APType.h; sourceTree = "<group>"; };
+		66221721144BCA7B0024026A /* APType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APType.m; sourceTree = "<group>"; };
+		66221726144BD1180024026A /* APWep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APWep.h; sourceTree = "<group>"; };
+		66221727144BD1180024026A /* APWep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APWep.m; sourceTree = "<group>"; };
 		6622B875140B240D003D8CD9 /* ManageServerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageServerListViewController.h; sourceTree = "<group>"; };
 		6622B876140B240D003D8CD9 /* ManageServerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageServerListViewController.m; sourceTree = "<group>"; };
 		6635EBFC1409887300FF0AD5 /* SecondLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondLevelViewController.h; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6622171F144B65180024026A /* CoreLocation.framework in Frameworks */,
 				669DAE72141DA85B00090782 /* SystemConfiguration.framework in Frameworks */,
 				669DAE69141DA48E00090782 /* MapKit.framework in Frameworks */,
 				665809D2140AAE0C00DA3540 /* CoreData.framework in Frameworks */,
@@ -127,6 +136,7 @@
 		6618DA6913D1D01400DDF41B = {
 			isa = PBXGroup;
 			children = (
+				6622171E144B65180024026A /* CoreLocation.framework */,
 				6618DA7E13D1D01400DDF41B /* KismetClient */,
 				6618DA7713D1D01400DDF41B /* Frameworks */,
 				6618DA7513D1D01400DDF41B /* Products */,
@@ -231,6 +241,10 @@
 				66ACAA25141407D700526B5E /* KismetNetwork.m */,
 				662216C614437C0F0024026A /* IgnoreAP.h */,
 				662216C714437C0F0024026A /* IgnoreAP.m */,
+				66221720144BCA7B0024026A /* APType.h */,
+				66221721144BCA7B0024026A /* APType.m */,
+				66221726144BD1180024026A /* APWep.h */,
+				66221727144BD1180024026A /* APWep.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -316,6 +330,8 @@
 				662216CC1443A2D10024026A /* AccessPoint.m in Sources */,
 				662216CF1443A2D20024026A /* GPSTrack.m in Sources */,
 				662216D21443A2D30024026A /* KismetServer.m in Sources */,
+				66221722144BCA7B0024026A /* APType.m in Sources */,
+				66221728144BD1180024026A /* APWep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

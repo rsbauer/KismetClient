@@ -11,6 +11,7 @@
 #import "AccessPoint.h"
 #import "KismetClientAppDelegate.h"
 #import "WAPDetailView.h"
+#import "MapViewController.h"
 
 @implementation WAPListViewController
 
@@ -104,6 +105,7 @@
 
 - (void)showMap:(id)sender
 {
+    /*
     // let the user know they do not have internet access
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Coming Soon" 
                                                     message:@"Feature not implemented yet - will show a Google map with APs as markers." 
@@ -112,6 +114,12 @@
                                           otherButtonTitles:nil];
     [alert show];
     [alert release];
+     */
+    
+    MapViewController *detail = [[MapViewController alloc] init];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+    [detail release];
 }
 
 - (void)contextDidSave:(id)sender

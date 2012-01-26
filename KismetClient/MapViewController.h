@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SecondLevelViewController.h"
 #import <MapKit/MapKit.h>
+#import "REVClusterMapView.h"
 
-
-@interface MapViewController : UIViewController {
-    IBOutlet MKMapView *mapView;
+@interface MapViewController : UIViewController <MKMapViewDelegate> {
+//    IBOutlet MKMapView *mapView;
+    REVClusterMapView *mapView;
 }
 
 

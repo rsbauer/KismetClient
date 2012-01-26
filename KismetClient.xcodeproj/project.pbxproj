@@ -28,6 +28,23 @@
 		665809D2140AAE0C00DA3540 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665809D1140AAE0C00DA3540 /* CoreData.framework */; };
 		665809DA140AC35200DA3540 /* KismetServer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 665809D8140AC35200DA3540 /* KismetServer.xcdatamodeld */; };
 		6665982A1401A03E002F0083 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666598281401A03E002F0083 /* MainWindow-iPad.xib */; };
+		66949F9814D1E30D00C3636F /* cluster.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7414D1E30D00C3636F /* cluster.png */; };
+		66949F9914D1E30D00C3636F /* cluster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7514D1E30D00C3636F /* cluster@2x.png */; };
+		66949F9A14D1E30D00C3636F /* pinpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7614D1E30D00C3636F /* pinpoint.png */; };
+		66949F9B14D1E30D00C3636F /* pinpoint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7714D1E30D00C3636F /* pinpoint@2x.png */; };
+		66949F9C14D1E30D00C3636F /* Default-ipad-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7814D1E30D00C3636F /* Default-ipad-Landscape.png */; };
+		66949F9D14D1E30D00C3636F /* Default-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7914D1E30D00C3636F /* Default-iphone.png */; };
+		66949F9E14D1E30D00C3636F /* Default@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7A14D1E30D00C3636F /* Default@2x-iphone.png */; };
+		66949F9F14D1E30D00C3636F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7B14D1E30D00C3636F /* Icon-72.png */; };
+		66949FA014D1E30D00C3636F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7C14D1E30D00C3636F /* Icon.png */; };
+		66949FA114D1E30D00C3636F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7D14D1E30D00C3636F /* Icon@2x.png */; };
+		66949FA314D1E30D00C3636F /* REVAnnotationsCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949F8214D1E30D00C3636F /* REVAnnotationsCollection.m */; };
+		66949FA414D1E30D00C3636F /* REVClusterBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949F8414D1E30D00C3636F /* REVClusterBlock.m */; };
+		66949FA514D1E30D00C3636F /* REVClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949F8614D1E30D00C3636F /* REVClusterManager.m */; };
+		66949FA614D1E30D00C3636F /* REVClusterMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949F8914D1E30D00C3636F /* REVClusterMapView.m */; };
+		66949FA714D1E30D00C3636F /* REVClusterPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949F8B14D1E30D00C3636F /* REVClusterPin.m */; };
+		66949FA814D1E30D00C3636F /* REVClusterMap-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66949F8C14D1E30D00C3636F /* REVClusterMap-Info.plist */; };
+		66949FAD14D2031E00C3636F /* REVClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66949FAC14D2031E00C3636F /* REVClusterAnnotationView.m */; };
 		669DAE2C141D96D300090782 /* WAPDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 669DAE2A141D96D300090782 /* WAPDetailView.m */; };
 		669DAE2D141D96D300090782 /* WAPDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669DAE2B141D96D300090782 /* WAPDetailView.xib */; };
 		669DAE69141DA48E00090782 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669DAE68141DA48E00090782 /* MapKit.framework */; };
@@ -38,7 +55,6 @@
 		66B0104413FF4FC20009B436 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B0104313FF4FC20009B436 /* AsyncSocket.m */; };
 		66B0104B13FF58DF0009B436 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B0104A13FF58DF0009B436 /* CFNetwork.framework */; };
 		66B2976A1453A2E200DAF04D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B297691453A2E200DAF04D /* MapViewController.m */; };
-		66B297711454519E00DAF04D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B297701454519E00DAF04D /* MapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +93,31 @@
 		665809D1140AAE0C00DA3540 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		665809D9140AC35200DA3540 /* KismetServer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KismetServer.xcdatamodel; sourceTree = "<group>"; };
 		666598291401A03E002F0083 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		66949F7414D1E30D00C3636F /* cluster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cluster.png; sourceTree = "<group>"; };
+		66949F7514D1E30D00C3636F /* cluster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cluster@2x.png"; sourceTree = "<group>"; };
+		66949F7614D1E30D00C3636F /* pinpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinpoint.png; sourceTree = "<group>"; };
+		66949F7714D1E30D00C3636F /* pinpoint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinpoint@2x.png"; sourceTree = "<group>"; };
+		66949F7814D1E30D00C3636F /* Default-ipad-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-ipad-Landscape.png"; sourceTree = "<group>"; };
+		66949F7914D1E30D00C3636F /* Default-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iphone.png"; sourceTree = "<group>"; };
+		66949F7A14D1E30D00C3636F /* Default@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x-iphone.png"; sourceTree = "<group>"; };
+		66949F7B14D1E30D00C3636F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		66949F7C14D1E30D00C3636F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		66949F7D14D1E30D00C3636F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		66949F8114D1E30D00C3636F /* REVAnnotationsCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVAnnotationsCollection.h; sourceTree = "<group>"; };
+		66949F8214D1E30D00C3636F /* REVAnnotationsCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVAnnotationsCollection.m; sourceTree = "<group>"; };
+		66949F8314D1E30D00C3636F /* REVClusterBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterBlock.h; sourceTree = "<group>"; };
+		66949F8414D1E30D00C3636F /* REVClusterBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVClusterBlock.m; sourceTree = "<group>"; };
+		66949F8514D1E30D00C3636F /* REVClusterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterManager.h; sourceTree = "<group>"; };
+		66949F8614D1E30D00C3636F /* REVClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVClusterManager.m; sourceTree = "<group>"; };
+		66949F8714D1E30D00C3636F /* REVClusterMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterMap.h; sourceTree = "<group>"; };
+		66949F8814D1E30D00C3636F /* REVClusterMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterMapView.h; sourceTree = "<group>"; };
+		66949F8914D1E30D00C3636F /* REVClusterMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVClusterMapView.m; sourceTree = "<group>"; };
+		66949F8A14D1E30D00C3636F /* REVClusterPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterPin.h; sourceTree = "<group>"; };
+		66949F8B14D1E30D00C3636F /* REVClusterPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVClusterPin.m; sourceTree = "<group>"; };
+		66949F8C14D1E30D00C3636F /* REVClusterMap-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "REVClusterMap-Info.plist"; sourceTree = "<group>"; };
+		66949F8D14D1E30D00C3636F /* REVClusterMap-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REVClusterMap-Prefix.pch"; sourceTree = "<group>"; };
+		66949FAB14D2031E00C3636F /* REVClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REVClusterAnnotationView.h; sourceTree = "<group>"; };
+		66949FAC14D2031E00C3636F /* REVClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REVClusterAnnotationView.m; sourceTree = "<group>"; };
 		669DAE29141D96D300090782 /* WAPDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAPDetailView.h; sourceTree = "<group>"; };
 		669DAE2A141D96D300090782 /* WAPDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAPDetailView.m; sourceTree = "<group>"; };
 		669DAE2B141D96D300090782 /* WAPDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WAPDetailView.xib; sourceTree = "<group>"; };
@@ -95,7 +136,6 @@
 		66B0104A13FF58DF0009B436 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		66B297681453A2E200DAF04D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		66B297691453A2E200DAF04D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		66B297701454519E00DAF04D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +183,7 @@
 		6618DA6913D1D01400DDF41B = {
 			isa = PBXGroup;
 			children = (
-				6622171E144B65180024026A /* CoreLocation.framework */,
+				66949F5214D1E01D00C3636F /* Libraries */,
 				6618DA7E13D1D01400DDF41B /* KismetClient */,
 				6618DA7713D1D01400DDF41B /* Frameworks */,
 				6618DA7513D1D01400DDF41B /* Products */,
@@ -161,6 +201,7 @@
 		6618DA7713D1D01400DDF41B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6622171E144B65180024026A /* CoreLocation.framework */,
 				669DAE71141DA85B00090782 /* SystemConfiguration.framework */,
 				669DAE68141DA48E00090782 /* MapKit.framework */,
 				665809D1140AAE0C00DA3540 /* CoreData.framework */,
@@ -224,7 +265,6 @@
 			children = (
 				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
 				669DAE2B141D96D300090782 /* WAPDetailView.xib */,
-				66B297701454519E00DAF04D /* MapViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -236,6 +276,71 @@
 				66B0104313FF4FC20009B436 /* AsyncSocket.m */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		66949F5214D1E01D00C3636F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				66949F6414D1E30D00C3636F /* REVClusterMap */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		66949F6414D1E30D00C3636F /* REVClusterMap */ = {
+			isa = PBXGroup;
+			children = (
+				66949F7214D1E30D00C3636F /* Recources */,
+				66949F8014D1E30D00C3636F /* REVClusterMap */,
+				66949F8C14D1E30D00C3636F /* REVClusterMap-Info.plist */,
+				66949F8D14D1E30D00C3636F /* REVClusterMap-Prefix.pch */,
+				66949FAB14D2031E00C3636F /* REVClusterAnnotationView.h */,
+				66949FAC14D2031E00C3636F /* REVClusterAnnotationView.m */,
+			);
+			name = REVClusterMap;
+			path = KismetClient/REVClusterMap;
+			sourceTree = "<group>";
+		};
+		66949F7214D1E30D00C3636F /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				66949F7314D1E30D00C3636F /* assets */,
+				66949F7814D1E30D00C3636F /* Default-ipad-Landscape.png */,
+				66949F7914D1E30D00C3636F /* Default-iphone.png */,
+				66949F7A14D1E30D00C3636F /* Default@2x-iphone.png */,
+				66949F7B14D1E30D00C3636F /* Icon-72.png */,
+				66949F7C14D1E30D00C3636F /* Icon.png */,
+				66949F7D14D1E30D00C3636F /* Icon@2x.png */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		66949F7314D1E30D00C3636F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				66949F7414D1E30D00C3636F /* cluster.png */,
+				66949F7514D1E30D00C3636F /* cluster@2x.png */,
+				66949F7614D1E30D00C3636F /* pinpoint.png */,
+				66949F7714D1E30D00C3636F /* pinpoint@2x.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		66949F8014D1E30D00C3636F /* REVClusterMap */ = {
+			isa = PBXGroup;
+			children = (
+				66949F8114D1E30D00C3636F /* REVAnnotationsCollection.h */,
+				66949F8214D1E30D00C3636F /* REVAnnotationsCollection.m */,
+				66949F8314D1E30D00C3636F /* REVClusterBlock.h */,
+				66949F8414D1E30D00C3636F /* REVClusterBlock.m */,
+				66949F8514D1E30D00C3636F /* REVClusterManager.h */,
+				66949F8614D1E30D00C3636F /* REVClusterManager.m */,
+				66949F8714D1E30D00C3636F /* REVClusterMap.h */,
+				66949F8814D1E30D00C3636F /* REVClusterMapView.h */,
+				66949F8914D1E30D00C3636F /* REVClusterMapView.m */,
+				66949F8A14D1E30D00C3636F /* REVClusterPin.h */,
+				66949F8B14D1E30D00C3636F /* REVClusterPin.m */,
+			);
+			path = REVClusterMap;
 			sourceTree = "<group>";
 		};
 		66ACAA141412AE8B00526B5E /* Classes */ = {
@@ -283,7 +388,7 @@
 		6618DA6B13D1D01400DDF41B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = 6618DA6E13D1D01400DDF41B /* Build configuration list for PBXProject "KismetClient" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -312,7 +417,17 @@
 				6618DA8C13D1D01400DDF41B /* MainWindow.xib in Resources */,
 				6665982A1401A03E002F0083 /* MainWindow-iPad.xib in Resources */,
 				669DAE2D141D96D300090782 /* WAPDetailView.xib in Resources */,
-				66B297711454519E00DAF04D /* MapViewController.xib in Resources */,
+				66949F9814D1E30D00C3636F /* cluster.png in Resources */,
+				66949F9914D1E30D00C3636F /* cluster@2x.png in Resources */,
+				66949F9A14D1E30D00C3636F /* pinpoint.png in Resources */,
+				66949F9B14D1E30D00C3636F /* pinpoint@2x.png in Resources */,
+				66949F9C14D1E30D00C3636F /* Default-ipad-Landscape.png in Resources */,
+				66949F9D14D1E30D00C3636F /* Default-iphone.png in Resources */,
+				66949F9E14D1E30D00C3636F /* Default@2x-iphone.png in Resources */,
+				66949F9F14D1E30D00C3636F /* Icon-72.png in Resources */,
+				66949FA014D1E30D00C3636F /* Icon.png in Resources */,
+				66949FA114D1E30D00C3636F /* Icon@2x.png in Resources */,
+				66949FA814D1E30D00C3636F /* REVClusterMap-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +457,12 @@
 				66221722144BCA7B0024026A /* APType.m in Sources */,
 				66221728144BD1180024026A /* APWep.m in Sources */,
 				66B2976A1453A2E200DAF04D /* MapViewController.m in Sources */,
+				66949FA314D1E30D00C3636F /* REVAnnotationsCollection.m in Sources */,
+				66949FA414D1E30D00C3636F /* REVClusterBlock.m in Sources */,
+				66949FA514D1E30D00C3636F /* REVClusterManager.m in Sources */,
+				66949FA614D1E30D00C3636F /* REVClusterMapView.m in Sources */,
+				66949FA714D1E30D00C3636F /* REVClusterPin.m in Sources */,
+				66949FAD14D2031E00C3636F /* REVClusterAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +536,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +552,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KismetClient/KismetClient-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "KismetClient/KismetClient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";

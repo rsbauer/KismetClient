@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import "KismetClientAppDelegate.h"
 #import "AccessPoint.h"
+#import "REVClusterPin.h"
+#import "REVClusterAnnotationView.h"
 
 @implementation MapViewController
 
@@ -25,6 +27,7 @@
 
 - (void)dealloc
 {
+    [mapView release];
     [super dealloc];
 }
 
@@ -46,11 +49,20 @@
     // holder for the data
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"AccessPoint" inManagedObjectContext:context];
     
+
+//    CGRect viewBounds = [[UIScreen mainScreen] applicationFrame];
+    CGRect viewBounds = [[UIScreen mainScreen] bounds];
+    
+    mapView = [[REVClusterMapView alloc] initWithFrame:viewBounds];
+    mapView.delegate = self;
+    
+    [self.view addSubview:mapView];
+    
     
     // fetch request
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:entity];
-    [fetchRequest setFetchLimit:1000];
+//    [fetchRequest setFetchLimit:1000];
 
     // set sorting
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastSeen" ascending:NO];
@@ -77,6 +89,8 @@
             double maxlat = -999;
             double minlon = 999;
             double maxlon = -999;
+            NSMutableArray *pins = [NSMutableArray array];
+
             
             for(AccessPoint *ap in searchResults)
             {
@@ -90,22 +104,37 @@
                 if([ap.maxlon doubleValue] > maxlon)
                     maxlon = [ap.maxlon doubleValue];
                 
-                
+/*                
                 MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
                 point.coordinate = CLLocationCoordinate2DMake([ap.minlat doubleValue], [ap.minlon doubleValue]);
                 point.title = ap.ssid;
                 NSLog(@"AP: %@", ap.ssid);
+*/
+                
+                REVClusterPin *pin = [[REVClusterPin alloc] init];
+                pin.title = ap.ssid;
+                pin.subtitle = @"Subtitle";
+                pin.coordinate = CLLocationCoordinate2DMake([ap.minlat doubleValue], [ap.minlon doubleValue]);
+                [pins addObject:pin];
+                [pin release]; 
                 
 //                point.subtitle = [dateFormatter stringFromDate:tempLoc.timestamp];
-                [mapView addAnnotation:point];
-                [point release];
+//                [mapView addAnnotation:pin];
+//                [pin release];
             }
+            
+            [mapView addAnnotations:pins];
 
             CLLocation *firstLocation = [[[CLLocation alloc] initWithLatitude:minlat longitude:minlon] autorelease];
             CLLocation *secondLocation = [[[CLLocation alloc] initWithLatitude:maxlat longitude:maxlon] autorelease];
-            CLLocationDistance distance = [secondLocation distanceFromLocation:firstLocation];
+//            CLLocationDistance distance = [secondLocation distanceFromLocation:firstLocation];
             
-            MKCoordinateRegion mapReg = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(maxlat, maxlon), (distance / 2) * 3, (distance / 2)* 3);
+//            MKCoordinateRegion mapReg = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(maxlat, maxlon), (distance / 2), (distance / 2));
+            
+            CLLocationCoordinate2D center = CLLocationCoordinate2DMake((maxlat + minlat) / 2, (maxlon + minlon) / 2);
+            MKCoordinateSpan span = MKCoordinateSpanMake(maxlat - minlat, maxlon - minlon);
+            MKCoordinateRegion mapReg = MKCoordinateRegionMake(center, span);
+            
             [mapView setRegion:mapReg];
         }
         else
@@ -139,6 +168,41 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - Map View Goodies
+
+- (MKAnnotationView *)mapView:(MKMapView *)localMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if([annotation class] == MKUserLocation.class) {
+		//userLocation = annotation;
+		return nil;
+	}
+    
+    REVClusterPin *pin = (REVClusterPin *)annotation;
+    
+    MKAnnotationView *annView;
+    
+    if( [pin nodeCount] > 0 ){
+        annView = (REVClusterAnnotationView*)[localMapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
+        
+        if( !annView )
+            annView = (REVClusterAnnotationView*)[[[REVClusterAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"] autorelease];
+        
+        annView.image = [UIImage imageNamed:@"cluster.png"];
+        [(REVClusterAnnotationView*)annView setClusterText:[NSString stringWithFormat:@"%i",[pin nodeCount]]];
+        annView.canShowCallout = YES;
+    } else {
+        annView = [localMapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+        
+        if( !annView )
+            annView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
+        
+        annView.image = [UIImage imageNamed:@"pinpoint.png"];
+        annView.canShowCallout = YES;   
+    }
+    return annView;
+}
+
 
 
 @end

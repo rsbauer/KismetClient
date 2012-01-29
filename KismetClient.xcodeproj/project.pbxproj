@@ -27,6 +27,10 @@
 		6635EC0414098AA000FF0AD5 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6635EC0314098AA000FF0AD5 /* ServerViewController.m */; };
 		665809D2140AAE0C00DA3540 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665809D1140AAE0C00DA3540 /* CoreData.framework */; };
 		665809DA140AC35200DA3540 /* KismetServer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 665809D8140AC35200DA3540 /* KismetServer.xcdatamodeld */; };
+		665B009514D5D4DD002DBDA1 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 665B009114D5D4DD002DBDA1 /* pin-green.png */; };
+		665B009614D5D4DD002DBDA1 /* pin-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665B009214D5D4DD002DBDA1 /* pin-green@2x.png */; };
+		665B009714D5D4DD002DBDA1 /* pin-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 665B009314D5D4DD002DBDA1 /* pin-red.png */; };
+		665B009814D5D4DD002DBDA1 /* pin-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665B009414D5D4DD002DBDA1 /* pin-red@2x.png */; };
 		6665982A1401A03E002F0083 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666598281401A03E002F0083 /* MainWindow-iPad.xib */; };
 		66949F9814D1E30D00C3636F /* cluster.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7414D1E30D00C3636F /* cluster.png */; };
 		66949F9914D1E30D00C3636F /* cluster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66949F7514D1E30D00C3636F /* cluster@2x.png */; };
@@ -92,6 +96,10 @@
 		6635EC0314098AA000FF0AD5 /* ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerViewController.m; sourceTree = "<group>"; };
 		665809D1140AAE0C00DA3540 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		665809D9140AC35200DA3540 /* KismetServer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KismetServer.xcdatamodel; sourceTree = "<group>"; };
+		665B009114D5D4DD002DBDA1 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin-green.png"; path = "assets/pin-green.png"; sourceTree = "<group>"; };
+		665B009214D5D4DD002DBDA1 /* pin-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin-green@2x.png"; path = "assets/pin-green@2x.png"; sourceTree = "<group>"; };
+		665B009314D5D4DD002DBDA1 /* pin-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin-red.png"; path = "assets/pin-red.png"; sourceTree = "<group>"; };
+		665B009414D5D4DD002DBDA1 /* pin-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin-red@2x.png"; path = "assets/pin-red@2x.png"; sourceTree = "<group>"; };
 		666598291401A03E002F0083 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		66949F7414D1E30D00C3636F /* cluster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cluster.png; sourceTree = "<group>"; };
 		66949F7514D1E30D00C3636F /* cluster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cluster@2x.png"; sourceTree = "<group>"; };
@@ -252,6 +260,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		665B008F14D5CFF9002DBDA1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				665B009114D5D4DD002DBDA1 /* pin-green.png */,
+				665B009214D5D4DD002DBDA1 /* pin-green@2x.png */,
+				665B009314D5D4DD002DBDA1 /* pin-red.png */,
+				665B009414D5D4DD002DBDA1 /* pin-red@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		666598271401A03D002F0083 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +282,7 @@
 		6665982B1401A062002F0083 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				665B008F14D5CFF9002DBDA1 /* Assets */,
 				6618DA8A13D1D01400DDF41B /* MainWindow.xib */,
 				669DAE2B141D96D300090782 /* WAPDetailView.xib */,
 			);
@@ -428,6 +448,10 @@
 				66949FA014D1E30D00C3636F /* Icon.png in Resources */,
 				66949FA114D1E30D00C3636F /* Icon@2x.png in Resources */,
 				66949FA814D1E30D00C3636F /* REVClusterMap-Info.plist in Resources */,
+				665B009514D5D4DD002DBDA1 /* pin-green.png in Resources */,
+				665B009614D5D4DD002DBDA1 /* pin-green@2x.png in Resources */,
+				665B009714D5D4DD002DBDA1 /* pin-red.png in Resources */,
+				665B009814D5D4DD002DBDA1 /* pin-red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

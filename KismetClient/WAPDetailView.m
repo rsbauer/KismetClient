@@ -11,6 +11,7 @@
 #import "KismetClientAppDelegate.h"
 #import "APType.h"
 #import "APWep.h"
+#import "REVClusterPin.h"
 
 #define IGNORE_TAG 99999
 
@@ -108,9 +109,16 @@
     point2.title = @"MAX";
 //    [mapView addAnnotation:point2];
 
+    /*
     MKPointAnnotation *point3 = [[MKPointAnnotation alloc] init];
     point3.coordinate = CLLocationCoordinate2DMake([avglat doubleValue], [avglon doubleValue]);
+    point3.title = accessPoint.bssid;    
+    [mapView addAnnotation:point3];
+    */
+    REVClusterPin *point3 = [[REVClusterPin alloc] init];
+    point3.coordinate = CLLocationCoordinate2DMake([avglat doubleValue], [avglon doubleValue]);
     point3.title = accessPoint.bssid;
+    point3.wep = [accessPoint.wep intValue];
     [mapView addAnnotation:point3];
     
     CLLocationCoordinate2D pointACoordinate = [point coordinate];
@@ -138,6 +146,42 @@
     [pointBLocation release];
     [divisor release];
 
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)localMapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    REVClusterPin *pin = (REVClusterPin *)annotation;
+    static NSString *SFAnnotationIdentifierGreen = @"SFAnnotationIdentifierGreen";
+    static NSString *SFAnnotationIdentifierRed = @"SFAnnotationIdentifierRed";
+    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[localMapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifierRed];
+
+    if ([[APWep getWepName:pin.wep] isEqualToString:@"NONE"]) {
+        pinView = (MKPinAnnotationView *)[localMapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifierGreen];
+    }
+
+    if (!pinView)
+    {
+        MKAnnotationView *annotationView = nil;
+        UIImage *flagImage = nil;
+        
+        if ([[APWep getWepName:pin.wep] isEqualToString:@"NONE"]) {
+            annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SFAnnotationIdentifierGreen] autorelease];
+            flagImage = [UIImage imageNamed:@"pin-green"];
+        }
+        else {
+            annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:SFAnnotationIdentifierRed] autorelease];
+            flagImage = [UIImage imageNamed:@"pin-red"];
+        }
+        
+        annotationView.image = flagImage;
+        return annotationView;
+    }
+    else
+    {
+        pinView.annotation = annotation;
+    }
+
+    return pinView;
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)map viewForOverlay:(id <MKOverlay>)overlay {
@@ -226,7 +270,6 @@
 
                 if([propNameString isEqualToString:@"wep"])
                 {
-                    NSLog(@"wep: %@", value);
                     int num = [[NSString stringWithFormat:@"%@", value] intValue];
                     value = [APWep getWepName:num];
                 }

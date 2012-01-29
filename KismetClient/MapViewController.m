@@ -11,6 +11,7 @@
 #import "AccessPoint.h"
 #import "REVClusterPin.h"
 #import "REVClusterAnnotationView.h"
+#import "APWep.h"
 
 @implementation MapViewController
 
@@ -115,6 +116,8 @@
                 pin.title = ap.ssid;
                 pin.subtitle = @"Subtitle";
                 pin.coordinate = CLLocationCoordinate2DMake([ap.minlat doubleValue], [ap.minlon doubleValue]);
+                pin.wep = [ap.wep intValue];
+                
                 [pins addObject:pin];
                 [pin release]; 
                 
@@ -125,8 +128,8 @@
             
             [mapView addAnnotations:pins];
 
-            CLLocation *firstLocation = [[[CLLocation alloc] initWithLatitude:minlat longitude:minlon] autorelease];
-            CLLocation *secondLocation = [[[CLLocation alloc] initWithLatitude:maxlat longitude:maxlon] autorelease];
+//            CLLocation *firstLocation = [[[CLLocation alloc] initWithLatitude:minlat longitude:minlon] autorelease];
+//            CLLocation *secondLocation = [[[CLLocation alloc] initWithLatitude:maxlat longitude:maxlon] autorelease];
 //            CLLocationDistance distance = [secondLocation distanceFromLocation:firstLocation];
             
 //            MKCoordinateRegion mapReg = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(maxlat, maxlon), (distance / 2), (distance / 2));
@@ -182,22 +185,29 @@
     
     MKAnnotationView *annView;
     
-    if( [pin nodeCount] > 0 ){
+    if ([pin nodeCount] > 0 ){
         annView = (REVClusterAnnotationView*)[localMapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
         
         if( !annView )
             annView = (REVClusterAnnotationView*)[[[REVClusterAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"cluster"] autorelease];
         
-        annView.image = [UIImage imageNamed:@"cluster.png"];
+        annView.image = [UIImage imageNamed:@"cluster"];
         [(REVClusterAnnotationView*)annView setClusterText:[NSString stringWithFormat:@"%i",[pin nodeCount]]];
         annView.canShowCallout = YES;
     } else {
         annView = [localMapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
-        
-        if( !annView )
+
+        if (!annView)
             annView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
         
-        annView.image = [UIImage imageNamed:@"pinpoint.png"];
+        if ([[APWep getWepName:pin.wep] isEqualToString:@"NONE"]) {
+            annView.image = [UIImage imageNamed:@"pin-green"]; 
+            
+        }
+        else {
+            annView.image = [UIImage imageNamed:@"pin-red"]; 
+        }
+
         annView.canShowCallout = YES;   
     }
     return annView;
